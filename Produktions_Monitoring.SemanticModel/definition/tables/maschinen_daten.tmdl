@@ -1,0 +1,72 @@
+table maschinen_daten
+	lineageTag: 4ebe83d4-6daf-4773-befc-3f74ba2c2d49
+
+	column Zeitstempel
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: a887d241-47e5-46a2-bb85-af1d083305e4
+		summarizeBy: none
+		sourceColumn: Zeitstempel
+
+		variation Variation
+			isDefault
+			relationship: 939e0570-805f-4267-8a0a-69a93dc8eb1e
+			defaultHierarchy: LocalDateTable_c5155b8a-7e0a-4def-a17e-7627050a23f5.Datumshierarchie
+
+		annotation SummarizationSetBy = Automatic
+
+	column Maschinen_ID
+		dataType: string
+		lineageTag: 4d28b328-7ef6-4723-a883-a5ab587e29fc
+		summarizeBy: none
+		sourceColumn: Maschinen_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Status
+		dataType: string
+		lineageTag: d15936b6-982e-422b-b925-1ad5f7435321
+		summarizeBy: none
+		sourceColumn: Status
+
+		annotation SummarizationSetBy = Automatic
+
+	column Temperatur
+		dataType: int64
+		formatString: 0
+		lineageTag: fb0ec833-cc99-42e7-8ede-e8df9f434643
+		summarizeBy: sum
+		sourceColumn: Temperatur
+
+		annotation SummarizationSetBy = Automatic
+
+	column produzierte_Stueckzahl
+		dataType: int64
+		formatString: 0
+		lineageTag: ef91e38c-b546-4df7-8cb4-3e36697a8d2e
+		summarizeBy: sum
+		sourceColumn: produzierte_Stueckzahl
+
+		annotation SummarizationSetBy = Automatic
+
+	column Fehlteile
+		dataType: int64
+		formatString: 0
+		lineageTag: c1f7a024-e7b7-496b-a235-28553b2daf5c
+		summarizeBy: sum
+		sourceColumn: Fehlteile
+
+		annotation SummarizationSetBy = Automatic
+
+	partition maschinen_daten = m
+		mode: import
+		source =
+				let
+				    Quelle = Csv.Document(File.Contents("C:\Users\Lenox\Documents\demo_claude_code\demo_cc\Produktions-Dashboard\maschinen_daten.csv"),[Delimiter=";", Columns=6, Encoding=1252, QuoteStyle=QuoteStyle.None]),
+				    #"Höher gestufte Header" = Table.PromoteHeaders(Quelle, [PromoteAllScalars=true]),
+				    #"Geänderter Typ" = Table.TransformColumnTypes(#"Höher gestufte Header",{{"Zeitstempel", type datetime}, {"Maschinen_ID", type text}, {"Status", type text}, {"Temperatur", Int64.Type}, {"produzierte_Stueckzahl", Int64.Type}, {"Fehlteile", Int64.Type}})
+				in
+				    #"Geänderter Typ"
+
+	annotation PBI_ResultType = Table
+

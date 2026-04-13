@@ -1,0 +1,30 @@
+# --- Large generated data (regenerate via generate_factory_data.py) ---
+production_big_data.csv
+
+# --- Power BI temp / cache / local settings ---
+**/.pbi/localSettings.json
+**/.pbi/cache.abf
+*.pbix.bak
+*.pbip.bak
+**/.pbi/
+~$*.pbix
+
+# --- Python ---
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+env/
+.Python
+*.egg-info/
+.pytest_cache/
+.ipynb_checkpoints/
+
+# --- OS / IDE ---
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+*.swp

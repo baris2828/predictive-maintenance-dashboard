@@ -1,0 +1,59 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+  "name": "52c4e8ad5d3995a1c997",
+  "position": {
+    "x": 0,
+    "y": 177.00308433258013,
+    "z": 7000,
+    "height": 68.234013425918292,
+    "width": 299.9594253575022,
+    "tabOrder": 7000
+  },
+  "visual": {
+    "visualType": "slicer",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "production_big_data"
+                    }
+                  },
+                  "Property": "Maschinen_ID"
+                }
+              },
+              "queryRef": "production_big_data.Maschinen_ID",
+              "nativeQueryRef": "Maschinen_ID",
+              "active": true
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "data": [
+        {
+          "properties": {
+            "mode": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Dropdown'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "general": [
+        {
+          "properties": {}
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

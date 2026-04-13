@@ -1,0 +1,354 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+  "name": "1274a26f8ea601d50647",
+  "position": {
+    "x": 0,
+    "y": 241.85917630176979,
+    "z": 0,
+    "height": 477.63809398142809,
+    "width": 610.05261508519027,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "lineChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "HierarchyLevel": {
+                  "Expression": {
+                    "Hierarchy": {
+                      "Expression": {
+                        "PropertyVariationSource": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "production_big_data"
+                            }
+                          },
+                          "Name": "Variation",
+                          "Property": "Zeitstempel"
+                        }
+                      },
+                      "Hierarchy": "Datumshierarchie"
+                    }
+                  },
+                  "Level": "Jahr"
+                }
+              },
+              "queryRef": "production_big_data.Zeitstempel.Variation.Datumshierarchie.Jahr",
+              "nativeQueryRef": "Zeitstempel Jahr",
+              "active": true
+            },
+            {
+              "field": {
+                "HierarchyLevel": {
+                  "Expression": {
+                    "Hierarchy": {
+                      "Expression": {
+                        "PropertyVariationSource": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "production_big_data"
+                            }
+                          },
+                          "Name": "Variation",
+                          "Property": "Zeitstempel"
+                        }
+                      },
+                      "Hierarchy": "Datumshierarchie"
+                    }
+                  },
+                  "Level": "Quartal"
+                }
+              },
+              "queryRef": "production_big_data.Zeitstempel.Variation.Datumshierarchie.Quartal",
+              "nativeQueryRef": "Zeitstempel Quartal",
+              "active": true
+            },
+            {
+              "field": {
+                "HierarchyLevel": {
+                  "Expression": {
+                    "Hierarchy": {
+                      "Expression": {
+                        "PropertyVariationSource": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "production_big_data"
+                            }
+                          },
+                          "Name": "Variation",
+                          "Property": "Zeitstempel"
+                        }
+                      },
+                      "Hierarchy": "Datumshierarchie"
+                    }
+                  },
+                  "Level": "Monat"
+                }
+              },
+              "queryRef": "production_big_data.Zeitstempel.Variation.Datumshierarchie.Monat",
+              "nativeQueryRef": "Zeitstempel Monat",
+              "active": true
+            },
+            {
+              "field": {
+                "HierarchyLevel": {
+                  "Expression": {
+                    "Hierarchy": {
+                      "Expression": {
+                        "PropertyVariationSource": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "production_big_data"
+                            }
+                          },
+                          "Name": "Variation",
+                          "Property": "Zeitstempel"
+                        }
+                      },
+                      "Hierarchy": "Datumshierarchie"
+                    }
+                  },
+                  "Level": "Tag"
+                }
+              },
+              "queryRef": "production_big_data.Zeitstempel.Variation.Datumshierarchie.Tag",
+              "nativeQueryRef": "Zeitstempel Tag",
+              "active": false
+            }
+          ]
+        },
+        "Series": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "production_big_data"
+                    }
+                  },
+                  "Property": "Maschinen_ID"
+                }
+              },
+              "queryRef": "production_big_data.Maschinen_ID",
+              "nativeQueryRef": "Maschinen_ID"
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "production_big_data"
+                        }
+                      },
+                      "Property": "Vibration_mm_s"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(production_big_data.Vibration_mm_s)",
+              "nativeQueryRef": "Summe von Vibration_mm_s"
+            }
+          ]
+        }
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "titleWrap": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "transparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "border": [
+        {
+          "properties": {
+            "width": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "30a619ad69b4e6904eac",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "production_big_data"
+                  }
+                },
+                "Property": "Vibration_mm_s"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "3a6a1652b9404bb8d51c",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "production_big_data"
+              }
+            },
+            "Property": "Maschinen_ID"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "649b8f0462050b99040c",
+        "field": {
+          "HierarchyLevel": {
+            "Expression": {
+              "Hierarchy": {
+                "Expression": {
+                  "PropertyVariationSource": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "production_big_data"
+                      }
+                    },
+                    "Name": "Variation",
+                    "Property": "Zeitstempel"
+                  }
+                },
+                "Hierarchy": "Datumshierarchie"
+              }
+            },
+            "Level": "Jahr"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "69010b3d8eb5c31cea08",
+        "field": {
+          "HierarchyLevel": {
+            "Expression": {
+              "Hierarchy": {
+                "Expression": {
+                  "PropertyVariationSource": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "production_big_data"
+                      }
+                    },
+                    "Name": "Variation",
+                    "Property": "Zeitstempel"
+                  }
+                },
+                "Hierarchy": "Datumshierarchie"
+              }
+            },
+            "Level": "Quartal"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "d470d21696a9b11a13e3",
+        "field": {
+          "HierarchyLevel": {
+            "Expression": {
+              "Hierarchy": {
+                "Expression": {
+                  "PropertyVariationSource": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "production_big_data"
+                      }
+                    },
+                    "Name": "Variation",
+                    "Property": "Zeitstempel"
+                  }
+                },
+                "Hierarchy": "Datumshierarchie"
+              }
+            },
+            "Level": "Monat"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "3e34e609cb61cc14b6ec",
+        "field": {
+          "HierarchyLevel": {
+            "Expression": {
+              "Hierarchy": {
+                "Expression": {
+                  "PropertyVariationSource": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "production_big_data"
+                      }
+                    },
+                    "Name": "Variation",
+                    "Property": "Zeitstempel"
+                  }
+                },
+                "Hierarchy": "Datumshierarchie"
+              }
+            },
+            "Level": "Tag"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

@@ -1,0 +1,22 @@
+model Model
+	culture: de-DE
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: de-DE
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBI_ProTooling = ["DevMode"]
+
+annotation PBI_QueryOrder = ["maschinen_daten","production_big_data"]
+
+ref table maschinen_daten
+ref table DateTableTemplate_c0f0f45a-93a8-4dc8-96be-5112e3ab7fb3
+ref table LocalDateTable_c5155b8a-7e0a-4def-a17e-7627050a23f5
+ref table production_big_data
+ref table LocalDateTable_34c9dc7a-e940-4151-831f-c919ed88197c
+
+ref cultureInfo de-DE
+

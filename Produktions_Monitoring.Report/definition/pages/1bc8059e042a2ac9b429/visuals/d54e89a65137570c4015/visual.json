@@ -1,0 +1,56 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+  "name": "d54e89a65137570c4015",
+  "position": {
+    "x": 428.32044071319007,
+    "y": 54.046743307658055,
+    "z": 5000,
+    "height": 125.65867819030498,
+    "width": 166.19373567104853,
+    "tabOrder": 5000
+  },
+  "visual": {
+    "visualType": "card",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "production_big_data"
+                    }
+                  },
+                  "Property": "Ausschussquote %"
+                }
+              },
+              "queryRef": "production_big_data.Ausschussquote %",
+              "nativeQueryRef": "Ausschussquote %"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "production_big_data"
+                  }
+                },
+                "Property": "Ausschussquote %"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

@@ -1,0 +1,97 @@
+table production_big_data
+	lineageTag: 7b71496a-a085-48f8-920b-34e57e583745
+
+	measure Gesamtproduktion = SUM(production_big_data[Produzierte_Stueck])
+		formatString: 0
+		lineageTag: 314be0b7-bd9a-4948-a2c1-887ba088d38e
+
+	measure 'Ausschussquote %' = DIVIDE(SUM(production_big_data[Fehlteile]), [Gesamtproduktion], 0)
+		formatString: 0.00\ %;-0.00\ %;0.00\ %
+		lineageTag: 24e961ea-06de-4cae-ace3-5ab771595bd8
+
+	measure 'Ø Vibration' = AVERAGE(production_big_data[Vibration_mm_s])
+		lineageTag: f8f90a08-c808-4213-9585-9eb245872f0c
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Zeitstempel
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: e472a58f-bab8-4775-a03d-5b4414bd17dd
+		summarizeBy: none
+		sourceColumn: Zeitstempel
+
+		variation Variation
+			isDefault
+			relationship: 86ee4c2f-57ac-4cb7-8f4b-9a8727906d6a
+			defaultHierarchy: LocalDateTable_34c9dc7a-e940-4151-831f-c919ed88197c.Datumshierarchie
+
+		annotation SummarizationSetBy = Automatic
+
+	column Maschinen_ID
+		dataType: string
+		lineageTag: e75a3288-f449-4ce7-b8ba-d3261483c5fa
+		summarizeBy: none
+		sourceColumn: Maschinen_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Vibration_mm_s
+		dataType: int64
+		formatString: 0
+		lineageTag: c19b2575-32ac-4dd3-a5bb-4af357654cee
+		summarizeBy: sum
+		sourceColumn: Vibration_mm_s
+
+		annotation SummarizationSetBy = Automatic
+
+	column Status
+		dataType: string
+		lineageTag: 98b4406c-cfa6-42b4-8171-02d8fe5823b4
+		summarizeBy: none
+		sourceColumn: Status
+
+		annotation SummarizationSetBy = Automatic
+
+	column Produzierte_Stueck
+		dataType: int64
+		formatString: 0
+		lineageTag: 13f6fc1d-d93f-46aa-827d-c74badd3aba8
+		summarizeBy: sum
+		sourceColumn: Produzierte_Stueck
+
+		annotation SummarizationSetBy = Automatic
+
+	column Fehlteile
+		dataType: int64
+		formatString: 0
+		lineageTag: 95dc2c16-39b7-4b24-a97c-1622f71c04ce
+		summarizeBy: sum
+		sourceColumn: Fehlteile
+
+		annotation SummarizationSetBy = Automatic
+
+	column Temperatur_C
+		dataType: int64
+		formatString: 0
+		lineageTag: 16005ac9-412f-4ac5-b64e-972fbfde1af0
+		summarizeBy: sum
+		sourceColumn: Temperatur_C
+
+		annotation SummarizationSetBy = Automatic
+
+	partition production_big_data = m
+		mode: import
+		source =
+				let
+				    Quelle = Csv.Document(File.Contents("C:\Users\Lenox\Documents\demo_claude_code\demo_cc\Produktions-Dashboard\production_big_data.csv"),[Delimiter=";", Columns=7, Encoding=1252, QuoteStyle=QuoteStyle.None]),
+				    #"Höher gestufte Header" = Table.PromoteHeaders(Quelle, [PromoteAllScalars=true]),
+				    #"Geänderter Typ" = Table.TransformColumnTypes(#"Höher gestufte Header",{{"Zeitstempel", type datetime}, {"Maschinen_ID", type text}, {"Vibration_mm_s", Int64.Type}, {"Status", type text}, {"Produzierte_Stueck", Int64.Type}, {"Fehlteile", Int64.Type}, {"Temperatur_C", Int64.Type}}),
+				    #"Entfernte Fehler" = Table.RemoveRowsWithErrors(#"Geänderter Typ", {"Temperatur_C"})
+				in
+				    #"Entfernte Fehler"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

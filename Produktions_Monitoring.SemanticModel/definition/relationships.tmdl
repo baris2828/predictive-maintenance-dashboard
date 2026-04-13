@@ -1,0 +1,10 @@
+relationship 939e0570-805f-4267-8a0a-69a93dc8eb1e
+	joinOnDateBehavior: datePartOnly
+	fromColumn: maschinen_daten.Zeitstempel
+	toColumn: LocalDateTable_c5155b8a-7e0a-4def-a17e-7627050a23f5.Date
+
+relationship 86ee4c2f-57ac-4cb7-8f4b-9a8727906d6a
+	joinOnDateBehavior: datePartOnly
+	fromColumn: production_big_data.Zeitstempel
+	toColumn: LocalDateTable_34c9dc7a-e940-4151-831f-c919ed88197c.Date
+
