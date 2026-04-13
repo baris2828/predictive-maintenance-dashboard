@@ -1,0 +1,160 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+  "name": "32e101e0007831802639",
+  "position": {
+    "x": 610.05261508519027,
+    "y": 497.2300384304541,
+    "z": 6000,
+    "height": 221.59164756139802,
+    "width": 670.17961701495983,
+    "tabOrder": 6000
+  },
+  "visual": {
+    "visualType": "scatterChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "production_big_data"
+                    }
+                  },
+                  "Property": "Maschinen_ID"
+                }
+              },
+              "queryRef": "production_big_data.Maschinen_ID",
+              "nativeQueryRef": "Maschinen_ID",
+              "active": true
+            }
+          ]
+        },
+        "Series": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "production_big_data"
+                    }
+                  },
+                  "Property": "Maschinen_ID"
+                }
+              },
+              "queryRef": "production_big_data.Maschinen_ID",
+              "nativeQueryRef": "Maschinen_ID"
+            }
+          ]
+        },
+        "X": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "production_big_data"
+                        }
+                      },
+                      "Property": "Vibration_mm_s"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(production_big_data.Vibration_mm_s)",
+              "nativeQueryRef": "Summe von Vibration_mm_s",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "production_big_data"
+                        }
+                      },
+                      "Property": "Fehlteile"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(production_big_data.Fehlteile)",
+              "nativeQueryRef": "Summe von Fehlteile"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "7474e9fe853729215c07",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "production_big_data"
+                  }
+                },
+                "Property": "Vibration_mm_s"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "e64f05e0148808074052",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "production_big_data"
+                  }
+                },
+                "Property": "Fehlteile"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "f0c6ce7d5838bdbb67e6",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "production_big_data"
+              }
+            },
+            "Property": "Maschinen_ID"
+          }
+        },
+        "type": "Categorical"
+      }
+    ]
+  }
+}
