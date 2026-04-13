@@ -4,6 +4,7 @@ production_big_data.csv
 # --- Power BI temp / cache / local settings ---
 **/.pbi/localSettings.json
 **/.pbi/cache.abf
+*.pbix
 *.pbix.bak
 *.pbip.bak
 **/.pbi/
