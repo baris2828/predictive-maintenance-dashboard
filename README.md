@@ -1,5 +1,7 @@
 # Predictive Maintenance Dashboard
 
+![Dashboard Vorschau](dashboard_preview.png)
+
 End-to-end analytics case study for a simulated German injection-molding factory. Python generates 87,600 hourly sensor records; Power BI turns them into a Predictive Maintenance Dashboard that identifies the physical driver of unplanned downtime.
 
 ---
