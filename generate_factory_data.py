@@ -70,7 +70,16 @@ df = pd.DataFrame(data_list)
 nan_indices = np.random.choice(df.index, size=100, replace=False)
 df.loc[nan_indices, "Temperatur_C"] = np.nan
 
-# Speichern als CSV für Power BI
-df.to_csv("production_big_data.csv", index=False, sep=";")
+# Speichern als CSV für Power BI. Deutsches Format: ";" als Spaltentrenner UND
+# "," als Dezimaltrenner — passend zur de-DE-Modellkultur. Sonst liest Power BI
+# "15.34" als Tausendertrenner (-> 1534) und die Vibration erscheint 100-fach
+# ueberhoeht (Oe Vibration ~1700 statt ~17 mm/s).
+df.to_csv("production_big_data.csv", index=False, sep=";", decimal=",")
 
-print(f"Fertig! {len(df)} Zeilen wurden in 'production_big_data.csv' gespeichert.")
+# Kleines, eingechecktes Sample (150 Zeilen je Maschine), damit man die
+# Datenform ohne Neu-Erzeugung sehen kann.
+sample = df.groupby("Maschinen_ID", group_keys=False).head(150)
+sample.to_csv("sample_data.csv", index=False, sep=";", decimal=",")
+
+print(f"Fertig! {len(df)} Zeilen in 'production_big_data.csv', "
+      f"{len(sample)} Zeilen in 'sample_data.csv' gespeichert.")
