@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
   "name": "1274a26f8ea601d50647",
   "position": {
     "x": 0,
@@ -154,11 +154,11 @@
                       "Property": "Vibration_mm_s"
                     }
                   },
-                  "Function": 0
+                  "Function": 1
                 }
               },
               "queryRef": "Sum(production_big_data.Vibration_mm_s)",
-              "nativeQueryRef": "Summe von Vibration_mm_s"
+              "nativeQueryRef": "Durchschnitt von Vibration_mm_s"
             }
           ]
         }
@@ -217,40 +217,7 @@
   "filterConfig": {
     "filters": [
       {
-        "name": "30a619ad69b4e6904eac",
-        "field": {
-          "Aggregation": {
-            "Expression": {
-              "Column": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "production_big_data"
-                  }
-                },
-                "Property": "Vibration_mm_s"
-              }
-            },
-            "Function": 0
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "3a6a1652b9404bb8d51c",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "production_big_data"
-              }
-            },
-            "Property": "Maschinen_ID"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "649b8f0462050b99040c",
+        "name": "9a47b01d12c55901d61d",
         "field": {
           "HierarchyLevel": {
             "Expression": {
@@ -275,7 +242,7 @@
         "type": "Advanced"
       },
       {
-        "name": "69010b3d8eb5c31cea08",
+        "name": "9c806cb644dff6dc42eb",
         "field": {
           "HierarchyLevel": {
             "Expression": {
@@ -300,7 +267,7 @@
         "type": "Categorical"
       },
       {
-        "name": "d470d21696a9b11a13e3",
+        "name": "bb58dd954bc597157bad",
         "field": {
           "HierarchyLevel": {
             "Expression": {
@@ -325,7 +292,7 @@
         "type": "Categorical"
       },
       {
-        "name": "3e34e609cb61cc14b6ec",
+        "name": "5714fd128f2a180d3b2e",
         "field": {
           "HierarchyLevel": {
             "Expression": {
@@ -345,6 +312,39 @@
               }
             },
             "Level": "Tag"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "6c3f2bb84c04031627b7",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "production_big_data"
+              }
+            },
+            "Property": "Maschinen_ID"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "041d956bb37120b7f725",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "production_big_data"
+                  }
+                },
+                "Property": "Vibration_mm_s"
+              }
+            },
+            "Function": 1
           }
         },
         "type": "Advanced"

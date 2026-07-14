@@ -84,7 +84,7 @@ table production_big_data
 		mode: import
 		source =
 				let
-				    Quelle = Csv.Document(File.Contents("C:\Users\Lenox\Documents\demo_claude_code\demo_cc\Produktions-Dashboard\production_big_data.csv"),[Delimiter=";", Columns=7, Encoding=1252, QuoteStyle=QuoteStyle.None]),
+				    Quelle = Csv.Document(File.Contents("C:\Users\Lenox\Projects\github-audit\predictive-maintenance-dashboard\production_big_data.csv"),[Delimiter=";", Columns=7, Encoding=1252, QuoteStyle=QuoteStyle.None]),
 				    #"Höher gestufte Header" = Table.PromoteHeaders(Quelle, [PromoteAllScalars=true]),
 				    #"Geänderter Typ" = Table.TransformColumnTypes(#"Höher gestufte Header",{{"Zeitstempel", type datetime}, {"Maschinen_ID", type text}, {"Vibration_mm_s", Int64.Type}, {"Status", type text}, {"Produzierte_Stueck", Int64.Type}, {"Fehlteile", Int64.Type}, {"Temperatur_C", Int64.Type}}),
 				    #"Entfernte Fehler" = Table.RemoveRowsWithErrors(#"Geänderter Typ", {"Temperatur_C"})

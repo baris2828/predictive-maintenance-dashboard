@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
   "name": "52c4e8ad5d3995a1c997",
   "position": {
     "x": 0,
@@ -55,5 +55,23 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "b382df458808237fd800",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "production_big_data"
+              }
+            },
+            "Property": "Maschinen_ID"
+          }
+        },
+        "type": "Categorical"
+      }
+    ]
   }
 }

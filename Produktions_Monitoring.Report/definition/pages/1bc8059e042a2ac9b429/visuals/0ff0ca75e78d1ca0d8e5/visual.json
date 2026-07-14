@@ -1,12 +1,12 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
   "name": "0ff0ca75e78d1ca0d8e5",
   "position": {
     "x": 0,
-    "y": 63.504923386498213,
+    "y": 63.4334112988848,
     "z": 3000,
-    "height": 116.20049811146482,
-    "width": 173.62516287585149,
+    "height": 116.40357949692263,
+    "width": 156.94864651270467,
     "tabOrder": 3000
   },
   "visual": {
@@ -52,5 +52,23 @@
       }
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "65eb522a9c150ebb78da",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "production_big_data"
+              }
+            },
+            "Property": "Gesamtproduktion"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }

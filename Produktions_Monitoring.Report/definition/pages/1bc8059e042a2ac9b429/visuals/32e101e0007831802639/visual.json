@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
   "name": "32e101e0007831802639",
   "position": {
     "x": 610.05261508519027,
@@ -65,11 +65,11 @@
                       "Property": "Vibration_mm_s"
                     }
                   },
-                  "Function": 0
+                  "Function": 1
                 }
               },
               "queryRef": "Sum(production_big_data.Vibration_mm_s)",
-              "nativeQueryRef": "Summe von Vibration_mm_s",
+              "nativeQueryRef": "Durchschnitt von Vibration_mm_s",
               "active": true
             }
           ]
@@ -104,26 +104,21 @@
   "filterConfig": {
     "filters": [
       {
-        "name": "7474e9fe853729215c07",
+        "name": "731f1bd428db9bb90543",
         "field": {
-          "Aggregation": {
+          "Column": {
             "Expression": {
-              "Column": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "production_big_data"
-                  }
-                },
-                "Property": "Vibration_mm_s"
+              "SourceRef": {
+                "Entity": "production_big_data"
               }
             },
-            "Function": 0
+            "Property": "Maschinen_ID"
           }
         },
-        "type": "Advanced"
+        "type": "Categorical"
       },
       {
-        "name": "e64f05e0148808074052",
+        "name": "b183e7bb93d95e205cbe",
         "field": {
           "Aggregation": {
             "Expression": {
@@ -142,18 +137,23 @@
         "type": "Advanced"
       },
       {
-        "name": "f0c6ce7d5838bdbb67e6",
+        "name": "cdab057216ef9e70e6e5",
         "field": {
-          "Column": {
+          "Aggregation": {
             "Expression": {
-              "SourceRef": {
-                "Entity": "production_big_data"
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "production_big_data"
+                  }
+                },
+                "Property": "Vibration_mm_s"
               }
             },
-            "Property": "Maschinen_ID"
+            "Function": 1
           }
         },
-        "type": "Categorical"
+        "type": "Advanced"
       }
     ]
   }
